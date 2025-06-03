@@ -327,10 +327,13 @@ export function AnimatedAIChat() {
           </div>
 
           <motion.div
-            className="relative backdrop-blur-2xl bg-white/[0.02] rounded-2xl border border-white/[0.05] shadow-2xl"
+            className="relative backdrop-blur-2xl bg-gradient-to-br from-violet-900/20 via-black/30 to-fuchsia-900/20 rounded-2xl border border-white/20 shadow-2xl"
             initial={{ scale: 0.98 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.1 }}
+            style={{
+              boxShadow: "0 0 40px rgba(139, 92, 246, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.05)",
+            }}
           >
             {/* Attachment button positioned at top right */}
             <div className="absolute top-3 right-3 z-10">
