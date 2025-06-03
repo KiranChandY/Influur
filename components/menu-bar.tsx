@@ -140,7 +140,7 @@ export function MenuBar() {
             />
             <motion.a
               href="#"
-              className="inline-flex items-center gap-2 px-4 py-2 text-muted-foreground group-hover:text-red-500 transition-colors rounded-xl"
+              className="inline-flex items-center gap-2 px-4 py-2 text-muted-foreground group-hover:text-orange-500 transition-colors rounded-xl"
             >
               <User className="h-5 w-5" />
               <span className="text-sm">Profile</span>

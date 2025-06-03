@@ -259,8 +259,40 @@ export function AnimatedAIChat() {
     }
   }
 
+  const arianaHits = useRef([
+    "positions",
+    "34-35",
+    "thank-u-next",
+    "7-rings",
+    "no-tears-left-to-cry",
+    "into-you",
+    "god-is-a-woman",
+    "dangerous-woman",
+    "problem",
+    "side-to-side",
+    "break-free",
+    "one-last-time",
+    "bang-bang",
+    "love-me-harder",
+    "santa-tell-me",
+    "baby-i",
+    "the-way",
+    "breathin",
+    "rain-on-me",
+    "motive",
+  ])
+
+  const songIndexRef = useRef(0)
+
+  const getNextSongFile = () => {
+    const index = songIndexRef.current % arianaHits.current.length
+    const file = `${arianaHits.current[index]}.mp4`
+    songIndexRef.current++
+    return file
+  }
+
   const handleAttachFile = () => {
-    const mockFileName = `file-${Math.floor(Math.random() * 1000)}.mp4`
+    const mockFileName = getNextSongFile()
     setAttachments((prev) => [...prev, mockFileName])
   }
 
@@ -301,28 +333,33 @@ export function AnimatedAIChat() {
         >
           <div className="text-center space-y-3">
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
               className="inline-block"
             >
-              <h1 className="text-3xl font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white/90 to-white/40 pb-1">
-                Let's cast your next viral campaign?
-              </h1>
+              <motion.h1
+                className="text-3xl font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white/90 to-white/40 pb-1"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+              >
+                Launch your next viral campaign?
+              </motion.h1>
               <motion.div
                 className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ width: 0, opacity: 0 }}
-                animate={{ width: "100%", opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.8, ease: "easeInOut" }}
               />
             </motion.div>
             <motion.p
               className="text-sm text-white/40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.6, ease: "easeOut" }}
             >
-              Type your vibe,target, or mission.
+              Type your vibe, target, or mission.
             </motion.p>
           </div>
 
