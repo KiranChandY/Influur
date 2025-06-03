@@ -445,7 +445,7 @@ export function AnimatedAIChat() {
 
             {/* Target audience section */}
             <div className="p-6 border-t border-white/[0.05] text-center">
-              <h2 className="text-lg font-regular text-white mb-4">Choose the Target Platform</h2>
+              <h2 className="text-lg font-medium text-white mb-4">Choose the Target Platform</h2>
 
               <div className="flex flex-wrap justify-center gap-3">
                 {platformOptions.map((platform) => {
