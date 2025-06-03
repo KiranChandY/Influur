@@ -12,7 +12,6 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
   const defaultItems = Array.from({ length: totalItems }, (_, i) => `Item ${i + 1}`);
   const baseItems = items.length > 0 ? items : defaultItems;
 
-  // Repeat items if not enough
   const repeatedItems = Array.from({ length: totalItems }, (_, i) => baseItems[i % baseItems.length]);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
     };
 
     const updateMotion = () => {
-      const maxMove = 150; // smoother, slower motion
+      const maxMove = 150;
       const inertia = [0.6, 0.4, 0.3, 0.2];
       rowRefs.current.forEach((row, i) => {
         if (row) {
@@ -57,8 +56,7 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
           background: `linear-gradient(180deg, rgba(0,0,0,0.25) 0%, transparent 100%)`,
         }}
       >
-        {/* Optional soft noise layer */}
-        <div className="absolute inset-0 pointer-events-none z-[4] bg-[length:250px] opacity-5"></div>
+        {/* Removed the noise.png background */}
 
         <div className="gap-[2px] flex-none relative w-[150vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-[2]">
           {[...Array(4)].map((_, rowIdx) => (
