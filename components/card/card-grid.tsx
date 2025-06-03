@@ -67,7 +67,7 @@ export default function CardGrid({
           <h2 className="mb-2 tracking-tighter text-3xl font-bold text-center text-white sm:text-4xl">{gridTitle}</h2>
         )}
         <p className="mb-12 text-lg text-center text-white/80 tracking-tight max-w-2xl mx-auto">
-          Discover fashion influencers that match your style and aesthetic preferences.
+          Based on Ariana's current audience and music trends, Pulse AI recommends this influencer mix and campaign strategy.
         </p>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center max-w-7xl mx-auto">

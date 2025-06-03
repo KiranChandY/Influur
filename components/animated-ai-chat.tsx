@@ -307,7 +307,7 @@ export function AnimatedAIChat() {
               className="inline-block"
             >
               <h1 className="text-3xl font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white/90 to-white/40 pb-1">
-                How can I help today?
+                Let's cast your next viral campaign?
               </h1>
               <motion.div
                 className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
@@ -322,7 +322,7 @@ export function AnimatedAIChat() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              Type a command or ask a question
+              Type your vibe,target, or mission.
             </motion.p>
           </div>
 

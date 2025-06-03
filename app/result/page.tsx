@@ -17,12 +17,12 @@ export default function ResultPage() {
       if (!video || !cardSection) return
 
       const currentScroll = window.scrollY
-      const cardSectionTop = cardSection.offsetTop - window.innerHeight * 0.2
+      const cardSectionTop = cardSection.offsetTop - window.innerHeight * 0.5
 
       // Hide scroll indicator after scrolling a bit
-      if (currentScroll > 100 && showScrollIndicator) {
+      if (currentScroll > 150 && showScrollIndicator) {
         setShowScrollIndicator(false)
-      } else if (currentScroll <= 100 && !showScrollIndicator) {
+      } else if (currentScroll <= 150 && !showScrollIndicator) {
         setShowScrollIndicator(true)
       }
 
@@ -57,26 +57,22 @@ export default function ResultPage() {
 
   return (
     <>
-      <div className="min-h-[200vh] w-full relative overflow-hidden">
+      <div className="min-h-[120vh] w-full relative overflow-hidden">
         {/* Video full screen initially */}
         <div className="relative">
           <video
             ref={videoRef}
-            src="/ariana-glambot.mp4"
             className="fixed top-0 left-0 w-full h-screen object-cover z-10"
             muted
             playsInline
             preload="auto"
-          />
+          >
+            <source src="/ariana-glambot.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
           {/* Subtle bottom gradient overlay */}
           <div className="fixed bottom-0 left-0 w-full h-48 bg-gradient-to-t from-rose-950/30 via-rose-900/20 to-transparent z-15 pointer-events-none"></div>
-        </div>
-
-        {/* Name + Description */}
-        <div className="absolute bottom-6 left-6 z-20 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/10">
-          <h1 className="text-2xl font-bold">Ariana Grande</h1>
-          <p className="text-sm text-white/80">Grammy-winning pop icon, captured in slow-motion glamour.</p>
         </div>
 
         {/* Scroll Down Indicator */}
@@ -89,23 +85,22 @@ export default function ResultPage() {
           </div>
         )}
 
-        {/* Generated Results */}
-        <div className="absolute top-[110vh] left-1/2 w-1/2 z-30 p-6">
-          <h2 className="text-2xl font-bold mb-4 text-white">AI-Generated Campaign</h2>
-          <p className="text-white/80">
-            Based on Ariana's current audience and music trends, Pulse AI recommends this influencer mix and campaign
-            strategy...
-          </p>
+        {/* Name + Description - appears after 2-3 scrolls */}
+        <div className="absolute top-[100vh] ml-16 left-0.4 transform -translate-x-1 z-10 max-w-md text-left">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-white to-pink-200 bg-clip-text text-transparent">
+            Ariana Grande
+          </h1>
+          <p className="text-base text-white/90 mt-2 font-regular">Grammy-winning pop icon.</p>
         </div>
       </div>
 
-      {/* Seamless Gradient Transition Section */}
-      <div className="relative z-30 h-60 bg-gradient-to-b from-transparent via-rose-950/40 via-rose-900/30 to-zinc-900/80"></div>
+      {/* Shorter Gradient Transition Section */}
+      <div className="relative z-30 h-20 bg-gradient-to-b from-transparent via-rose-950/50 to-zinc-900/90"></div>
 
-      {/* Card Grid Section with Soft Background - This is where video stops */}
+      {/* Card Grid Section - This is where video stops and AI results show */}
       <div
         ref={cardSectionRef}
-        className="relative z-30 bg-gradient-to-b from-zinc-900/80 via-zinc-800/60 to-zinc-900/90 py-20 min-h-screen"
+        className="relative z-30 bg-gradient-to-b from-zinc-900/90 via-zinc-800/70 to-zinc-900/95 py-12 min-h-screen"
       >
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -144,26 +139,7 @@ export default function ResultPage() {
           ]}
         />
 
-        {/* Additional content to demonstrate static scrolling */}
-        <div className="container mx-auto px-4 md:px-6 mt-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-white mb-6">Campaign Analytics</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
-                <div className="text-3xl font-bold text-rose-400 mb-2">2.4M</div>
-                <div className="text-white/80">Estimated Reach</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
-                <div className="text-3xl font-bold text-pink-400 mb-2">8.7%</div>
-                <div className="text-white/80">Engagement Rate</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
-                <div className="text-3xl font-bold text-purple-400 mb-2">$45K</div>
-                <div className="text-white/80">Campaign Budget</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Campaign Analytics */}
       </div>
     </>
   )
