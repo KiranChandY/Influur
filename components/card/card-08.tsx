@@ -45,7 +45,9 @@ export default function Card08({
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-purple/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-orange/10 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
         <div className="absolute top-3 right-3">
           <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-black shadow-sm">

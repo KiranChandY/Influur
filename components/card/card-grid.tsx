@@ -46,6 +46,46 @@ const defaultCollections: Card08Props[] = [
     },
     href: "#",
   },
+  {
+    title: "Urban Streetwear",
+    subtitle: "Bold styles for the modern influencer",
+    image: "/15.jpg",
+    badge: {
+      text: "New",
+      variant: "orange",
+    },
+    href: "#",
+  },
+  {
+    title: "Festival Fashion",
+    subtitle: "Stand out in the crowd with vibrant looks",
+    image: "/17.jpg",
+    badge: {
+      text: "New",
+      variant: "orange",
+    },
+    href: "#",
+  },
+  {
+    title: "Luxury Accessories",
+    subtitle: "Premium pieces for the discerning influencer",
+    image: "/19.jpg",
+    badge: {
+      text: "New",
+      variant: "orange",
+    },
+    href: "#",
+  },
+  {
+    title: "Fitness Collection",
+    subtitle: "Performance wear for active content creators",
+    image: "/21.jpg",
+    badge: {
+      text: "New",
+      variant: "orange",
+    },
+    href: "#",
+  },
 ]
 
 export default function CardGrid({
@@ -67,7 +107,8 @@ export default function CardGrid({
           <h2 className="mb-2 tracking-tighter text-3xl font-bold text-center text-white sm:text-4xl">{gridTitle}</h2>
         )}
         <p className="mb-12 text-lg text-center text-white/80 tracking-tight max-w-2xl mx-auto">
-          Based on Ariana's current audience and music trends, Pulse AI recommends this influencer mix and campaign strategy.
+          Based on Ariana's current audience and music trends, Pulse AI recommends this influencer mix and campaign
+          strategy.
         </p>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center max-w-7xl mx-auto">
