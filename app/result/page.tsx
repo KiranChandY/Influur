@@ -9,6 +9,8 @@ export default function ResultPage() {
   const [videoStopped, setVideoStopped] = useState(false)
   const cardSectionRef = useRef<HTMLDivElement>(null)
   const [showScrollIndicator, setShowScrollIndicator] = useState(true)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [videoError, setVideoError] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +43,9 @@ export default function ResultPage() {
         // Simple scroll-based playback
         if (currentScroll > lastScrollTop.current) {
           // Scrolling down - play forward
-          video.play().catch(() => {})
+          if (videoLoaded) {
+            video.play().catch(() => {})
+          }
         } else if (currentScroll < lastScrollTop.current) {
           // Scrolling up - pause (don't try to reverse)
           video.pause()
@@ -53,7 +57,34 @@ export default function ResultPage() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [videoStopped, showScrollIndicator])
+  }, [videoStopped, showScrollIndicator, videoLoaded])
+
+  // Handle video loading
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const handleLoadedData = () => {
+      setVideoLoaded(true)
+      console.log("Video loaded successfully")
+    }
+
+    const handleError = (e: Event) => {
+      console.error("Video error:", e)
+      setVideoError(true)
+    }
+
+    video.addEventListener("loadeddata", handleLoadedData)
+    video.addEventListener("error", handleError)
+
+    // Force reload the video
+    video.load()
+
+    return () => {
+      video.removeEventListener("loadeddata", handleLoadedData)
+      video.removeEventListener("error", handleError)
+    }
+  }, [])
 
   return (
     <>
@@ -66,10 +97,16 @@ export default function ResultPage() {
             muted
             playsInline
             preload="auto"
+            poster="/ariana-poster.png"
           >
             <source src="/ariana-glambot.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+
+          {/* Fallback background for when video fails to load */}
+          {videoError && (
+            <div className="fixed top-0 left-0 w-full h-screen bg-gradient-to-b from-rose-950 to-black z-5"></div>
+          )}
 
           {/* Subtle bottom gradient overlay */}
           <div className="fixed bottom-0 left-0 w-full h-48 bg-gradient-to-t from-rose-950/30 via-rose-900/20 to-transparent z-15 pointer-events-none"></div>
