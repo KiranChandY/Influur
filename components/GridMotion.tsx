@@ -58,7 +58,7 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
         }}
       >
         {/* Optional soft noise layer */}
-        <div className="absolute inset-0 pointer-events-none z-[4] bg-[url('../../../assets/noise.png')] bg-[length:250px] opacity-5"></div>
+        <div className="absolute inset-0 pointer-events-none z-[4] bg-[length:250px] opacity-5"></div>
 
         <div className="gap-[2px] flex-none relative w-[150vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-[2]">
           {[...Array(4)].map((_, rowIdx) => (
