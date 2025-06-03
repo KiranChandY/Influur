@@ -24,30 +24,6 @@
   --ring: 270 95% 75%;
 }
 
-@layer components {
-  .animated-gradient {
-    @apply bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500;
-    background-size: 200% 200%;
-    animation: gradient 8s ease infinite;
-  }
-
-  .noise-bg {
-    position: relative;
-  }
-
-  .noise-bg::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("/assets/noise.png");
-    opacity: 0.05;
-    pointer-events: none;
-  }
-}
-
 body {
   background-color: black;
   color: white;
@@ -61,17 +37,5 @@ body {
   100% {
     transform: scale(2);
     opacity: 0;
-  }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
   }
 }
