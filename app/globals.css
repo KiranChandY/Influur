@@ -1,9 +1,7 @@
-/* Tailwind CSS Layer Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Variables */
 :root {
   --background: 0 0% 3.9%;
   --foreground: 0 0% 98%;
@@ -26,14 +24,14 @@
   --ring: 270 95% 75%;
 }
 
-/* Add any custom component styles using the @layer directive */
 @layer components {
   .animated-gradient {
-    @apply bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-size-200 animate-gradient;
+    @apply bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500;
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
   }
 }
 
-/* Add any custom utilities using the @layer directive */
 @layer utilities {
   .bg-size-200 {
     background-size: 200% 200%;
@@ -44,7 +42,6 @@
   }
 }
 
-/* Global styles */
 body {
   background-color: black;
   color: white;
