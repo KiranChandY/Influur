@@ -6,7 +6,7 @@ import { gsap } from "gsap"
 const GridMotion = ({ items = [], gradientColor = "black" }) => {
   const gridRef = useRef(null)
   const rowRefs = useRef([])
-  const mouseXRef = useRef(window.innerWidth / 2)
+  const mouseXRef = useRef(typeof window !== "undefined" ? window.innerWidth / 2 : 0)
 
   const totalItems = 28
   const defaultItems = Array.from({ length: totalItems }, (_, i) => `Item ${i + 1}`)
@@ -18,14 +18,16 @@ const GridMotion = ({ items = [], gradientColor = "black" }) => {
     gsap.ticker.lagSmoothing(0)
 
     const handleMouseMove = (e) => {
-      mouseXRef.current = e.clientX
+      if (typeof window !== "undefined") {
+        mouseXRef.current = e.clientX
+      }
     }
 
     const updateMotion = () => {
       const maxMove = 150
       const inertia = [0.6, 0.4, 0.3, 0.2]
       rowRefs.current.forEach((row, i) => {
-        if (row) {
+        if (row && typeof window !== "undefined") {
           const direction = i % 2 === 0 ? 1 : -1
           const moveAmount = ((mouseXRef.current / window.innerWidth) * maxMove - maxMove / 2) * direction
 
