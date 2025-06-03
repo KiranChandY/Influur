@@ -66,7 +66,20 @@ export default function ResultPage() {
             muted
             playsInline
             preload="auto"
+            autoPlay
+            loop
+            onError={(e) => {
+              console.error("Video error:", e)
+              console.error("Video src:", videoRef.current?.src)
+            }}
+            onLoadStart={() => console.log("Video load started")}
+            onCanPlay={() => console.log("Video can play")}
+            onLoadedData={() => console.log("Video loaded data")}
           >
+            <source
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_NDVieaWayvLjkbX3RcX7vyd1iD2h/jK87zutPZOep-QUZwAvOZH/public/ariana-glambot.mp4"
+              type="video/mp4"
+            />
             <source src="/ariana-glambot.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
