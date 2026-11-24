@@ -1,30 +1,55 @@
-# react_influur
+# Influur · AI Campaign Generator (concept)
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+A concept interface for an AI tool that helps brands launch influencer campaigns. You describe the vibe, target or mission in plain language, pick a platform, and the app generates a campaign concept with a matched creator.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/kiranchandyellamelli-gmailcoms-projects/v0-react-influur)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/5JBGOZeUedM)
+**🔗 Live demo:** [v0-react-influur.vercel.app](https://v0-react-influur.vercel.app)
 
-## Overview
+> Independent design-engineering concept inspired by Influur. Not an official Influur product.
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+---
 
-## Deployment
+## ✨ Highlights
 
-Your project is live at:
+- **Prompt-first input.** One AI chat-style box is the whole starting point, so creating a campaign feels as simple as sending a message.
+- **Platform targeting.** Quick chips for Instagram, TikTok, YouTube and X set the context without extra forms.
+- **Motion with purpose.** An animated grid of creator imagery sets the tone on the landing screen, and the result page reveals the generated campaign with scroll-driven motion.
+- **Generated campaign result.** A results view shows the matched creator, campaign visuals and video.
 
-**[https://vercel.com/kiranchandyellamelli-gmailcoms-projects/v0-react-influur](https://vercel.com/kiranchandyellamelli-gmailcoms-projects/v0-react-influur)**
+## 🛠 Built with
 
-## Build your app
+| Area | Tools |
+|---|---|
+| Framework | Next.js (App Router), React, TypeScript |
+| Styling | Tailwind CSS, shadcn/ui (Radix primitives) |
+| Motion | Framer Motion, GSAP |
+| Prototyping | v0, deployed on Vercel |
 
-Continue building your app on:
+## 📁 Structure
 
-**[https://v0.dev/chat/projects/5JBGOZeUedM](https://v0.dev/chat/projects/5JBGOZeUedM)**
+```
+app/
+  page.tsx            # prompt + platform selection
+  result/page.tsx     # generated campaign view
+components/
+  animated-ai-chat.tsx  # AI prompt input
+  GridMotion.tsx        # animated creator grid background
+  StarBorder.tsx        # animated border accent
+  menu-bar.tsx          # top navigation
+  card/                 # result cards and grid
+```
 
-## How It Works
+## 🚀 Run locally
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+```bash
+pnpm install
+pnpm dev
+# open http://localhost:3000
+```
+
+## 🧠 Design notes
+
+The goal was to make a powerful AI workflow feel effortless: one input, one decision (platform), one clear result. Visual energy comes from motion and imagery instead of extra UI, keeping the interface itself calm.
+
+---
+
+Designed and built by **[Kiran Chand Yellamelli](https://github.com/KiranChandY)** · [Portfolio](https://kiranchandy.framer.website) · [LinkedIn](https://www.linkedin.com/in/kiran-chandy/)
